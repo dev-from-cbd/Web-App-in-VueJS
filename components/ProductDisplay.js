@@ -1,9 +1,9 @@
-app.component('product-display', {
+app.component("product-display", {
   props: {
     premium: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   template:
     /*html*/
@@ -48,55 +48,60 @@ app.component('product-display', {
    `,
   data() {
     return {
-      product: 'Socks',
-      brand: 'Vue Mastery',
+      product: "13",
+      brand: "Apple iPhone",
       selectedVariant: 0,
-      details: ['80% cotton', '20% polyester', 'Gender-neutral'],
+      details: [
+        "5.4-inch iPhone iPhone 13 mini",
+        "6.1-inch iPhone 13",
+        "6.1-inch iPhone 13 Pro",
+        "6.7-inch iPhone 13 Pro Max",
+      ],
       variants: [
         {
           id: 2234,
-          color: 'green',
-          image: './assets/images/socks_green.jpg',
-          quantity: 10
+          color: "green",
+          image: "./assets/images/socks_green.jpg",
+          quantity: 10,
         },
         {
           id: 2235,
-          color: 'blue',
-          image: './assets/images/socks_blue.jpg',
-          quantity: 0
-        }
+          color: "blue",
+          image: "./assets/images/socks_blue.jpg",
+          quantity: 0,
+        },
       ],
       reviews: [],
-      tabs: ['review-form', 'review-list'],
-      activeTab: 'review-form'
-    }
+      tabs: ["review-form", "review-list"],
+      activeTab: "review-form",
+    };
   },
   methods: {
     addToCart() {
-      this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
+      this.$emit("add-to-cart", this.variants[this.selectedVariant].id);
     },
     updateProduct(index) {
-      this.selectedVariant = index
+      this.selectedVariant = index;
     },
     addReview(review) {
-      this.reviews.push(review)
-    }
+      this.reviews.push(review);
+    },
   },
   computed: {
     productName() {
-      return this.brand + ' ' + this.product
+      return this.brand + " " + this.product;
     },
     image() {
-      return this.variants[this.selectedVariant].image
+      return this.variants[this.selectedVariant].image;
     },
     inStock() {
-      return this.variants[this.selectedVariant].quantity
+      return this.variants[this.selectedVariant].quantity;
     },
     shipping() {
       if (this.premium) {
-        return 'Free'
+        return "Free";
       }
-      return 2.99
-    }
-  }
-})
+      return 2.99;
+    },
+  },
+});
