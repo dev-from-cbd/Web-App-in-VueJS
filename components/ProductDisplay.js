@@ -67,7 +67,7 @@ app.component("product-display", {
         {
           id: 2235,
           color: "blue",
-          image: "assets/images/socks_blue.jpg",
+          image: "assets/images/blue.jpg",
           quantity: 0,
         },
       ],
